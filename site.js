@@ -1,8 +1,7 @@
 // Configuração do site: endereços do sistema, contato e Instagram. Sem dependências.
 (function () {
   var local = location.hostname === "localhost" || location.hostname === "127.0.0.1";
-  // Área do cliente. Provisório até app.lintratech.com.br estar ligado no Render; depois troque pelo definitivo.
-  var APP = local ? "http://localhost:5180" : "https://lintra-app.onrender.com";
+  var APP = local ? "http://localhost:5180" : "https://app.lintratech.com.br";
   // Número comercial no formato internacional, só dígitos (ex.: 5511999999999). Vazio = botão escondido.
   var WHATSAPP = "";
 
