@@ -14,6 +14,14 @@
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 
+  // Os servidores gratuitos dormem sem uso: acorda o login e a API do CoachApp enquanto a pessoa lê o site,
+  // para o "Testar grátis" e o primeiro login não esperarem ~40 s.
+  if (!local && window.fetch) {
+    ["https://id.lintratech.com.br/health", "https://coachapp-api-7xfe.onrender.com/health"].forEach(function (u) {
+      fetch(u, { mode: "no-cors" }).catch(function () {});
+    });
+  }
+
   // Instagram: publicações listadas em instagram.json, exibidas com o incorporador oficial.
   var caixa = document.getElementById("posts");
   if (!caixa) return;
