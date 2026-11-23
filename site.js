@@ -15,9 +15,10 @@
   if (ano) ano.textContent = new Date().getFullYear();
 
   // Os servidores gratuitos dormem sem uso: acorda o login e a API do CoachApp enquanto a pessoa lê o site,
-  // para o "Testar grátis" e o primeiro login não esperarem ~40 s.
+  // para o "Testar grátis" e o primeiro login não esperarem ~40 s (login, CoachApp e Barbaly).
   if (!local && window.fetch) {
-    ["https://id.lintratech.com.br/health", "https://coachapp-api-7xfe.onrender.com/health"].forEach(function (u) {
+    ["https://id.lintratech.com.br/health", "https://coachapp-api-7xfe.onrender.com/health",
+     "https://barbaly-api.onrender.com/health"].forEach(function (u) {
       fetch(u, { mode: "no-cors" }).catch(function () {});
     });
   }
